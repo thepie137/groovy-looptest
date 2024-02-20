@@ -26,5 +26,17 @@ pipeline {
                 }
             }
         }
+        stage('Call Shellscript') {
+            steps {
+                 // Set execute permission for the shell script
+                script {
+                    sh 'chmod +x ./pieshell.sh' // Replace with the name of your shell script
+                }
+                // Execute the shell script
+                script {
+                    sh './pieshell.sh' // Replace with the name of your shell script
+                }
+            }
+        }
     }
 }
