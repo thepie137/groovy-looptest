@@ -28,13 +28,14 @@ pipeline {
         }
         stage('Call Shellscript') {
             steps {
-                 // Set execute permission for the shell script
+                // Set execute permission for the shell script
                 script {
                     sh 'chmod +x ./pieshell.sh' // Replace with the name of your shell script
                 }
-                // Execute the shell script
+                // Execute the shell script and capture its output
                 script {
-                    sh './pieshell.sh' // Replace with the name of your shell script
+                    def scriptOutput = sh(script: './pieshell.sh', returnStdout: true).trim()
+                    echo "Output from shell script: $scriptOutput"
                 }
             }
         }
