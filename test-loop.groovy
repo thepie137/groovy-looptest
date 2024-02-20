@@ -2,6 +2,11 @@ pipeline {
     agent any
 
     stages {
+        stage('Git Checkout') {
+            steps {
+                git checkout scm
+            }
+        }
         stage('Loop Example') {
             steps {
                 script {
