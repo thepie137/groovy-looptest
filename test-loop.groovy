@@ -39,5 +39,13 @@ pipeline {
                 }
             }
         }
+        stage('Call Python') {
+            steps {
+                script {
+                    def scriptPythonOutput = sh(script: 'python3 piethon.py', returnStdout: true).trim()
+                    echo "Output from Python script: $scriptPythonOutput"
+                }
+            }
+        }
     }
 }
